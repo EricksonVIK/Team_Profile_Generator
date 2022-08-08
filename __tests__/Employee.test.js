@@ -1,21 +1,31 @@
 // Parent Class for other classes (Manager, Engineer, Intern)
 
+// test for name, id, email
+const Employee = require('../lib/Employee')
+
+const employeeTest = new Employee ('Chris', 3, 'vik@gmail.com', 'Employee');
+
 // test for name
-
-test ('creates an Employee object', () => {
-    const employee = new Employee ('Chris')
-
-    expect(employee.name).toBe('Chris');
-    expect(employee.id).toBe(expect.any(Number));
-    expect(employee.email).toBe(expect.any(''));
+test ('has a name', () => {
+    expect(employeeTest.name).toEqual(expect.any(String))
+    expect(employeeTest.name.length).toBeGreaterThan(2)
+})
+// test for email
+test ('has an email', () =>{
+    expect(employeeTest.email).toEqual(expect.stringContaining('@'))
+})
+// test for id
+test ('has an id that is a num', () => {
+    expect(employeeTest.id).toEqual(expect.any(Number))
+})
+// test for role
+test('has a role of employee', () => {
+    expect(employeeTest.role).toBe('Employee')
 })
 
 
 
-// test for id
 
-
-// test for email 
 
 
 // test getName()
