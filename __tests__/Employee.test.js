@@ -15,7 +15,7 @@ test ('has an email', () =>{
     expect(employeeTest.email).toEqual(expect.stringContaining('@'))
 })
 // test for id
-test ('has an id that is a num', () => {
+test ('has an id number', () => {
     expect(employeeTest.id).toEqual(expect.any(Number))
 })
 // test for role
