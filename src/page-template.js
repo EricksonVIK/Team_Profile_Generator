@@ -1,7 +1,4 @@
-// 
-
-// loop to create employee cards?
-
+// loops created for each employee type
 const generateHtml = (teamData) => {
     const generateManager = (manager) => { 
         const managerArr =[]
@@ -36,23 +33,25 @@ const generateHtml = (teamData) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Member Profile</title>
-        // link style sheet
-        // any script to link?
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">      
+        <link rel='stylesheet' href= 'style.css'>
+        <link rel='stylesheet' href= 'generalstyle.css'>
     </head>
-    < body>
-        <nav>
-            <div>
-                <span>My Team</>
-            <div>
-        </nav>
-
-        <div>
-            <div>To hold Employee cards</div>
+    <body>
+        <header class='hero alight-center flex-row'>
+            <h1 class= 'title align-center flex-row'>
+            MY TEAM
+            </h1>
+        </header>
+        <main class='flex-row justify-space-between'>
+          <div class="flex-rown justify-space-between align-center' id='employeeBlocks'>
             ${generateManager(teamData.filter(data => data.role === 'Manager'))}
             ${generateEngineer(teamData.filter(data => data.role === 'Engineer'))}
             ${generateIntern(teamData.filter(data => data.role === 'Intern'))}
 
         </div>
+        </main>
 
     </body>
 

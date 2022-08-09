@@ -6,6 +6,13 @@ const fs = require('fs');
 function writeHtml (html) {
     fs.writeFileSync ('./dist/index.html', html) }
     
+const copyGenCSS = () => {
+    fs.copyFile('./src/style.css', './dist/style.css', err => {
+        if(err) {
+            throw err
+        } 
+        console.log('style.css file copied.')
+    })
+}
 
-
-module.exports=writeHtml;
+module.exports=writeHtml, copyGenCSS;

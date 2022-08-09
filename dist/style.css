@@ -1,0 +1,20 @@
+:root {
+    --primary: rgb(133, 13, 13);
+    --secondary: rgb(17, 111, 143);
+    --border-radius: .3rem;
+    --primary-border: black, 5px,solid;
+    --dark-text: black;
+    --light-text: white;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+.hero {
+    background: var(--primary);
+    font-size: 36px;
+    justify-content: center;
+    border-style: var(--primary-border);
+    color: var(--light-text)
+}

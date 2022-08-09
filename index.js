@@ -11,9 +11,8 @@ const Manager = require('./lib/Manager');
 
 // import NTML generate function from generate-site
 const generateHtml =require('./src/page-template');
-const writeHtml = require('./utils/generate-site')
-
-const validator = require('email-validator');
+const writeHtml = require('./utils/generate-site');
+// const copyGenCSS = require('./utils/generate-site'); 
 
 // Team member array
 const team = []
@@ -165,6 +164,7 @@ function addEmployee () {
             const html = generateHtml(team)
             console.log(html)
             writeHtml(html);
+            // copyGenCSS();
         }
     })
 }
