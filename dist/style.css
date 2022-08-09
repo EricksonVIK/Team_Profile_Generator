@@ -1,8 +1,8 @@
 :root {
     --primary: rgb(133, 13, 13);
-    --secondary: rgb(17, 111, 143);
+    --secondary: rgb(51,153,255);
     --border-radius: .3rem;
-    --primary-border: black, 5px,solid;
+    --primary-border: black, 5px, solid;
     --dark-text: black;
     --light-text: white;
 }
@@ -20,15 +20,45 @@
 }
 
 .card-title {
-    background-color: var(--secondary);
-    font-size: 16px;
-    justify-content: center;
+    width: 100%;
+    background: var(--secondary);
+    font-size: 32px;
+    align-content: center;
     color:var(--light-text);
+    margin-bottom: 0px;
+    margin-top: 0px;
+    border: var(--primary-border);
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 .card-subtitle {
+    width:100%;
     background-color: var(--secondary);
-    font-size: 12px;
-    justify-content: center;
-    color: var(--light-text)
+    font-size: 24px;
+    align-content: center;
+    color: var(--light-text);
+    margin-top: 0px;
+    margin-bottom: 3px;
+    border: var(--primary-border);
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
+
+.card{
+    max-width: 100%;
+    margin: 20px;
+    padding: 0;
+    background: var(--secondary);
+    border: black;
+}
+
+.list-group{
+    margin: 10px;
+    padding: 0px;
+    list-style-type: none;
+    color: var(--light-text);
+}
+
