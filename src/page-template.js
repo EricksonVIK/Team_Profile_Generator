@@ -1,9 +1,19 @@
 // loops created for each employee type
 const generateHtml = (teamData) => {
     const generateManager = (manager) => { 
+        console.log(manager)
         const managerArr =[]
         for (let i =0; i < manager.length; i++){
-        managerArr.push(`<div> Manager: ${manager[i].name}</div>`)
+        managerArr.push(
+        `<div class="flex-column justify-space-between align-center" id="employeeBlocks>
+                <h1 class="card-title" id="card-title">${manager[i].name}</h1>
+                <h3 class ="card-subtitle">${manager[i].role} </h3>
+                <ul class="list-group">
+                    <li class = "list-group-item"> Email: ${manager[i].email}</li>
+                    <li class = "list-group-item"> Employee ID: ${manager[i].id}</li>
+                    <li class = "list-group-item"> Office #: ${manager[i].office}</li>
+                </ul>
+        </div>`)
         }
         return managerArr.join('')
     }
@@ -35,22 +45,19 @@ const generateHtml = (teamData) => {
         <title>Team Member Profile</title>
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">      
-        <link rel='stylesheet' href= 'style.css'>
-        <link rel='stylesheet' href= 'generalstyle.css'>
+        <link rel="stylesheet" href= "style.css">
+        <link rel="stylesheet" href= "generalstyle.css">
     </head>
     <body>
-        <header class='hero alight-center flex-row'>
-            <h1 class= 'title align-center flex-row'>
+        <header class="hero alight-center flex-row">
+            <h1 class= "title align-center flex-row">
             MY TEAM
             </h1>
         </header>
-        <main class='flex-row justify-space-between'>
-          <div class="flex-rown justify-space-between align-center' id='employeeBlocks'>
-            ${generateManager(teamData.filter(data => data.role === 'Manager'))}
-            ${generateEngineer(teamData.filter(data => data.role === 'Engineer'))}
-            ${generateIntern(teamData.filter(data => data.role === 'Intern'))}
-
-        </div>
+        <main class="flex-row justify-space-between">
+                    ${generateManager(teamData.filter(data => data.role === 'Manager'))}
+                    ${generateEngineer(teamData.filter(data => data.role === 'Engineer'))}
+                    ${generateIntern(teamData.filter(data => data.role === 'Intern'))}
         </main>
 
     </body>

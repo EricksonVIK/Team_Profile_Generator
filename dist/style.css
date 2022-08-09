@@ -18,3 +18,17 @@
     border-style: var(--primary-border);
     color: var(--light-text)
 }
+
+.card-title {
+    background-color: var(--secondary);
+    font-size: 16px;
+    justify-content: center;
+    color:var(--light-text);
+}
+
+.card-subtitle {
+    background-color: var(--secondary);
+    font-size: 12px;
+    justify-content: center;
+    color: var(--light-text)
+}
