@@ -10,9 +10,10 @@ const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
 // import NTML generate function from generate-site
-const generatePage =require('./src/page-template');
+const generateHtml =require('./src/page-template');
+const writeHtml = require('./utils/generate-site')
 
-// import layout from page-template
+const validator = require('email-validator');
 
 // Team member array
 const team = []
@@ -37,43 +38,31 @@ const promptUser = () => {
             name: 'email',
             message: 'What is the employee email address? (Required)',
             validate : emailInput => {
-                // can i specify an @symbol?
-                if (emailInput) {
+                    const pass = emailInput.match(/\S+@\S+\.\S+/);
+                    if (pass) {
                     return true;
-                } else {
-                    console.log('Please enter a valid email!')
-                    return false;
+                    }
+                    return 'Please enter a valid email address.';
                 }
-            }
         },
         {
             type:'input',
             name: 'idNumber',
-            message: 'What is the employee id? (Required)',
-            validate : idNumberInput => {
-                // can i specify number here?
-                if (idNumberInput) {
-                    return true;
-                } else {
-                    console.log('Please enter numerical id!')
-                    return false;
+            message: 'What is the employee id? (Number required)',
+            validate : (idNumberInput) => {
+                    const pass = idNumberInput.match(/^[1-9]\d*$/);
+                    if (pass){
+                        return true;
+                    } else {
+                        return 'Please enter a numberic id.'
+                    }
                 }
-            },
         },
         {
             type:'list',
             name: 'role',
             message: 'Please select the employee role. (Required)',
             choices:['Manager', 'Engineer', 'Intern'],
-            validate : roleInput => {
-                // can i specify 1 role here?
-                if (roleInput) {
-                    return true;
-                } else {
-                    console.log('Please enter one role!')
-                    return false;
-                }
-            }
         },
     ])
     .then(data => {
@@ -83,15 +72,14 @@ const promptUser = () => {
                 {
                     type: 'input',
                     name: 'office',
-                    message: 'Please enter an office number.',
-                    validate : officeInput => {
-                        // can i specify number?
-                        if (officeInput) {
+                    message: 'Please enter an office number. (Number Required)',
+                    validate : (officeInput) => {
+                        const pass = officeInput.match(/^[1-9]\d*$/);
+                        if (pass){
                             return true;
                         } else {
-                            console.log('Please enter a numrical office number!')
-                            return false;
-                        }
+                            return 'Please enter a numberic id.'
+                        }                
                     }
                 }
             ])
@@ -168,12 +156,15 @@ function addEmployee () {
         }   
     ])
     .then (add => {
-        console.log(add)
+        // console.log(add)
         if (add.addEmployee === true){
             return promptUser(team);
         }else{
-            console.log (team)
+            // console.log (team)
             // add in html writefunctions
+            const html = generateHtml(team)
+            console.log(html)
+            writeHtml(html);
         }
     })
 }
