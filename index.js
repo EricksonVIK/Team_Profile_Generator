@@ -12,13 +12,18 @@ const Manager = require('./lib/Manager');
 // import NTML generate function from generate-site
 const generateHtml =require('./src/page-template');
 const writeHtml = require('./utils/generate-site');
+// const copyFile = require('./utils/generate-site');
 // const copyGenCSS = require('./utils/generate-site'); 
 
 // Team member array
 const team = []
 
 const promptUser = () => {
-    return inquirer.prompt([
+    console.log(`
+===============================================
+    Follow the Prompts to Add a Team Member
+===============================================`)
+    return inquirer.prompt([        
         {
             type: 'input',
             name: 'name',
@@ -27,7 +32,7 @@ const promptUser = () => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('Please enter your name!')
+                    console.log('Please enter a valid name!')
                     return false;
                 }
             }
@@ -65,7 +70,7 @@ const promptUser = () => {
         },
     ])
     .then(data => {
-        console.log(data)
+        // console.log(data)
         if(data.role === 'Manager') {
             inquirer.prompt([
                 {
@@ -83,8 +88,8 @@ const promptUser = () => {
                 }
             ])
             .then(response => {
-                console.table(data)
-                console.log(response.office);
+                // console.table(data)
+                // console.log(response.office);
                 const ManagerTeam = new Manager (data.name, data.idNumber, data.email, data.role, response.office)
                 team.push(ManagerTeam)
                 addEmployee()
@@ -106,8 +111,8 @@ const promptUser = () => {
                 }
             ])
             .then (response => {
-                console.table(data)
-                console.log(response.github)
+                // console.table(data)
+                // console.log(response.github)
                 const EngineerTeam = new Engineer (data.name, data.idNumber, data.email, data.role, response.github)
                 team.push(EngineerTeam)
                 addEmployee()
@@ -129,14 +134,14 @@ const promptUser = () => {
                 }
             ])
             .then (response => {
-                console.table(data)
-                console.log(response.school);
+                // console.table(data)
+                // console.log(response.school);
                 const InternTeam = new Intern (data.name, data.idNumber, data.email, data.role, response.school)
                 team.push(InternTeam)
                 addEmployee()
             })
         } else {
-            console.table (data)
+            // console.table (data)
             const EmployeeTeam = new Employee (data.name, data.idNumber, data.email, data.role)
             team.push(EmployeeTeam)
             addEmployee()
@@ -151,7 +156,7 @@ function addEmployee () {
         {
             type: 'confirm',
             name: 'addEmployee',
-            message: 'Would you like t add another employee?',
+            message: 'Would you like to add another team member?',
         }   
     ])
     .then (add => {
@@ -159,12 +164,11 @@ function addEmployee () {
         if (add.addEmployee === true){
             return promptUser(team);
         }else{
-            // console.log (team)
+            console.table (team)
             // add in html writefunctions
             const html = generateHtml(team)
-            console.log(html)
+            // console.log(html) -- uncomment to see html (if not populating in dist)
             writeHtml(html);
-            // copyGenCSS();
         }
     })
 }

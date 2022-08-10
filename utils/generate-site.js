@@ -1,18 +1,16 @@
 // write html
-// const { rejects } = require('assert')
 const fs = require('fs');
-// const { resolve } = require('path');
 
 function writeHtml (html) {
-    fs.writeFileSync ('./dist/index.html', html) }
-    
-const copyGenCSS = () => {
-    fs.copyFile('./src/style.css', './dist/style.css', err => {
-        if(err) {
-            throw err
-        } 
-        console.log('style.css file copied.')
-    })
+    fs.writeFileSync ('./dist/index.html', html) 
+    console.log('HTML has been created!')
+    fs.copyFileSync ('./src/css/style.css', './dist/style.css')
+    fs.copyFileSync ('./src/css/generalstyle.css', './dist/generalstyle.css')
+    console.log('CSS sheets have been copied.')
 }
 
-module.exports=writeHtml, copyGenCSS;
+    
+// function copyFile () {
+//     fs.copyFileSync ('./src/style.css', './dist/style.css')}
+
+module.exports = writeHtml;
