@@ -7,6 +7,7 @@
   - [Description](#description)
   - [Demonstration](#demonstration)
   - [Screenshot](#screenshot)
+  - [Development](#development)
   - [Contact](#contact)
   - [License](#license)
 
@@ -23,16 +24,21 @@
 
   ![](src/images/Test%20pass%20_%20Screenshot%202022-08-09%20210908.png)
 
-  ## Usage
-
   ## Demonstration
   https://drive.google.com/file/d/1OthmV_fA41Z0s5WkSYUZAbjkb1dymjJZ/view
+
+  ## Development
+  - Add the ability to customize the team name via inquirer.
+  - Add the ability to add team members after HTML has been generated.
+  - Add the ability to delete/edit team members after HTML has been generated.
+
 
   ## Screenshot
   ![](src/images/website_Screenshot%202022-08-09%20222435.png)
   
   ## Contact Information
   https://github.com/EricksonVIK </br>
+  https://ericksonvik.github.io/Team_Profile_Generator/
   
 
   ## License
