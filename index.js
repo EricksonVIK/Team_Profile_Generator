@@ -20,9 +20,9 @@ const team = []
 
 const promptUser = () => {
     console.log(`
-    ======================================
-    Follow the Prompts to Add Team Members
-    ======================================`)
+===============================================
+    Follow the Prompts to Add a Team Member
+===============================================`)
     return inquirer.prompt([        
         {
             type: 'input',
@@ -156,7 +156,7 @@ function addEmployee () {
         {
             type: 'confirm',
             name: 'addEmployee',
-            message: 'Would you like t add another employee?',
+            message: 'Would you like to add another team member?',
         }   
     ])
     .then (add => {
