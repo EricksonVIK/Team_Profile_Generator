@@ -32,7 +32,9 @@ const generateHtml = (teamData) => {
                 <ul class="list-group">
                     <li class = "list-group-item"> Employee ID: ${engineer[i].id}</li>
                     <li class = "list-group-item"> Email: <a href=mailto:${engineer[i].email}>${engineer[i].email}</a></li>
-                    <li class = "list-group-item fa-brands fa-github">GitHub: ${engineer[i].github}</li>
+                    <li class = "list-group-item fa-brands fa-github">
+                        <a href='https://github.com/${engineer[i].github}?tab=repositories' target="_blank">GitHub: ${engineer[i].github}</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -70,6 +72,7 @@ const generateHtml = (teamData) => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Member Profile</title>
+        <link rel="icon" type="image/x-icon" href="../src/images/icon.png">
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
         <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">      
